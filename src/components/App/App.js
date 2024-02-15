@@ -1,0 +1,21 @@
+import './App.css';
+import useState from 'react';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
+import Home from '../Home/Home';
+
+function App() {
+
+  return (
+    <Routes>
+      {/* <Header /> */}
+      <Route path="/" element={<Home />} />
+      {/* <Route path="/game" element={<Game />} /> */}
+      {/* <Route path="highscore" element={<HighScore />} /> */}
+    </Routes>
+  );
+}
+
+export default App;
