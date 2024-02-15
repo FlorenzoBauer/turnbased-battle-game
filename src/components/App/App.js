@@ -3,7 +3,7 @@ import useState from 'react';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-
+import Game from '../Game/Game';
 import Home from '../Home/Home';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <Routes>
       {/* <Header /> */}
       <Route path="/" element={<Home />} />
-      {/* <Route path="/game" element={<Game />} /> */}
+      <Route path="/game" element={<Game />} />
       {/* <Route path="highscore" element={<HighScore />} /> */}
     </Routes>
   );
