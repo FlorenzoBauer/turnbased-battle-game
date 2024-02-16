@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 700px;
+    height: 650px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.startButton,
+.highScoreButton,
+.settingsButton {
+    font-size: medium;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: 500;
+    background: white;
+    border: 2px solid #000;
+    width: 300px;
+    margin: 5px;
+}
+
+.startButton:hover,
+.highScoreButton:hover,
+.settingsButton:hover {
+    background: #ccc; 
+    border-color: #555; 
+}
+
+.startButton:active,
+.highScoreButton:active,
+.settingsButton:active {
+    background: #888; 
+    border-color: #222; 
+    color: white; 
+}
+
+.dashKetchup {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
