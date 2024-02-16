@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import Game from '../Game/Game';
 import Home from '../Home/Home';
+import HighScore from '../HighScore/HighScore';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       {/* <Header /> */}
       <Route path="/" element={<Home />} />
       <Route path="/game" element={<Game />} />
-      {/* <Route path="highscore" element={<HighScore />} /> */}
+      <Route path="highscore" element={<HighScore />} />
     </Routes>
   );
 }

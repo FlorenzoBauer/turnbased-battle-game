@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
-
-.Home {
+.highscore {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,20 +6,22 @@
     width: 700px;
     height: 650px;
     margin-top: 30px;
-    justify-content: center;
 }
 
-h1 {
-    margin-bottom: 50px;
-}
-
-h3 {
+.details {
     font-family: 'Pixelify Sans', sans-serif;
+    width: 600px;
+    display: flex;
+    width: 600px;
+    justify-content: space-around;
 }
 
-.startButton,
-.highScoreButton,
-.settingsButton {
+.highscore-title {
+    font-family: 'Pixelify Sans', sans-serif;
+    margin-top: 100px;
+}
+
+.home-button {
     font-size: medium;
     font-family: 'Pixelify Sans', sans-serif;
     font-weight: 500;
@@ -31,23 +31,19 @@ h3 {
     margin: 5px;
 }
 
-.startButton:hover,
-.highScoreButton:hover,
-.settingsButton:hover {
+.home-button:hover {
     background: blue; 
     border-color: #555; 
 }
 
-.startButton:active,
-.highScoreButton:active,
-.settingsButton:active {
+.home-button:active {
     background: red; 
     border-color: #222; 
     color: white; 
 }
 
-.dashKetchup {
-    width: 100px;
-    height: 100px;
-    margin: 20px;
+.mapped-score-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
