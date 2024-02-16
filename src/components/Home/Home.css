@@ -34,14 +34,14 @@ h3 {
 .startButton:hover,
 .highScoreButton:hover,
 .settingsButton:hover {
-    background: blue; 
+    background: red; 
     border-color: #555; 
 }
 
 .startButton:active,
 .highScoreButton:active,
 .settingsButton:active {
-    background: red; 
+    background: blue; 
     border-color: #222; 
     color: white; 
 }
