@@ -73,10 +73,10 @@
 
 .main {
     display: flex;
-    width: 700px;
+    width: 685px;
     height: 100px;
-    justify-content: space-around;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
 .flip-horizontal {
