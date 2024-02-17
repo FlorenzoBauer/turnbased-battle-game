@@ -15,6 +15,7 @@ const Home = () => {
     const navSettings = () => {
         navigate('/settings')
     }
+    
     return (
         <main className="Home">
             <h1>Battle Pals</h1>

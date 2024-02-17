@@ -2,13 +2,18 @@ import './Game.css'
 import PlayerSummary from '../PlayerSummary/PlayerSummary'
 import { enemyStats, playerStats } from '../../shared/Characters'
 import BattleMenu from '../BattleMenu/BattleMenu'
+import Announcer from '../Announcer/Announcer'
+import { useState } from 'react'
+
 
 const Game = () => {
-    const [opponentHealth, setOpponentHealth] = [enemyStats.maxHealth]
-    const [playerHealth, setPlayerHealth] = [playerStats.maxHealth]
+    const [opponentHealth, setOpponentHealth] = useState(enemyStats.maxHealth)
+    const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
+    const [announcerMessage, setAnnouncerMessage] = useState('')
+
 
     return (
-        <game>
+        <div>
             <div>
                 <PlayerSummary 
                 health={playerHealth} 
@@ -35,15 +40,18 @@ const Game = () => {
                 className='AiSummary' main={true}/>
             </div>
             <div className='hud'>
+                <Announcer message={
+                    announcerMessage || `What will ${playerStats.name} do?`
+                }/>
+
                 <BattleMenu className='battle-menu'
                 onAttack={() => {console.log('Attack')}}
                 onAttack2={() => {console.log('Attack2')}}
                 onAttack3={() => {console.log('Attack3')}}
                 onHeal={() => {console.log('Heal')}}
-                
                 />
             </div>
-        </game>
+        </div>
     )
 }
 
