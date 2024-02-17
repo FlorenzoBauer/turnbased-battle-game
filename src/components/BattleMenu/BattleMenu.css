@@ -1,0 +1,21 @@
+button.battle-menu__button {
+    font-size: medium;
+    font-family: 'Pixelify Sans', sans-serif;
+    height: 24px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    width: 300px;
+    display: flex;
+}
+
+button.battle-menu__button:hover {
+    background: red; 
+    border-color: #555; 
+}
+
+button.battle-menu__button:active {
+    background: blue; 
+    border-color: #222; 
+}

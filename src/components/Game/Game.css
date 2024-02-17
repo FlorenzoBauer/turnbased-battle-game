@@ -1,4 +1,84 @@
-img {
+.character-imgs {
     margin: 10px;
     width: 160px;
 }
+
+.enemy-imgs {
+    margin: 10px;
+    width: 160px;
+}
+
+.battle-menu {
+    display: flex;
+    width: 690px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.player-characters {
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.enemy-characters {
+    margin-top: -33px;
+    display: flex;
+    width: 700px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hud {
+    border: 2px solid white;
+    background-color: black;
+    display: flex;
+    width: 692px;
+    height: 108px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 700px;
+    height: 650px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.player1summary {
+    width: 688px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.player2summary {
+    width: 688px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.main {
+    display: flex;
+    width: 685px;
+    height: 100px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.flip-horizontal {
+    transform: scaleX(-1);
+  }

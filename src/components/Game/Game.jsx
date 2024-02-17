@@ -13,8 +13,8 @@ const Game = () => {
 
 
     return (
-        <div>
-            <div>
+        <div className='game'>
+            <div className='player1summary'>
                 <PlayerSummary 
                 health={playerHealth} 
                 name={playerStats.name} 
@@ -22,16 +22,16 @@ const Game = () => {
                 maxHealth={playerStats.maxHealth} 
                 className='playerSummary' main={false} />
             </div>
-            <div className='characters-vs-sign' >
+            {/* <div className='characters-vs-sign' >
                 {playerStats.name} vs {enemyStats.name}
-            </div>
+            </div> */}
             <div className='player-characters'>
                 <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
             </div>
             <div className='enemy-characters'>
-                <img className='character-imgs' src={enemyStats.img} alt={enemyStats.name} />
+                <img className='enem-imgs' class="flip-horizontal" src={enemyStats.img} alt={enemyStats.name} />
             </div>
-            <div>
+            <div className='player2summary'>
                 <PlayerSummary 
                 health={opponentHealth} 
                 name={enemyStats.name} 
