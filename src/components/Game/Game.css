@@ -8,8 +8,12 @@
     width: 160px;
 }
 
-.characters-vs-sign {
-
+.battle-menu {
+    display: flex;
+    width: 690px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: space-around;
 }
 
 .player-characters {
