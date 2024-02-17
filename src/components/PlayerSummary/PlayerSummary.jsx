@@ -9,9 +9,9 @@ const blue = '#1953cb'
 
 const PlayerSummary = ({ main = false, name, level, health, maxHealth }) => {
     return (
-        <main className="main" style={{backgroundColor: main ? red: blue}}>
-            <h1>Player Summary</h1>
+        <main className="main">
             <div className='info'>
+                <h2>Player Summary</h2>
                 <article>{name}</article>
                 <article>Level: {level}</article>
             </div>
