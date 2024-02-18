@@ -3,14 +3,28 @@ import PlayerSummary from '../PlayerSummary/PlayerSummary'
 import { enemyStats, playerStats } from '../../shared/Characters'
 import BattleMenu from '../BattleMenu/BattleMenu'
 import Announcer from '../Announcer/Announcer'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { useBattleSequence } from '../../hooks/useBattleSequence'
+import { useAIOpponent } from '../../hooks/useAIOpponent'
 
 const Game = () => {
-    const [opponentHealth, setOpponentHealth] = useState(enemyStats.maxHealth)
-    const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
-    const [announcerMessage, setAnnouncerMessage] = useState('')
+    const [sequence, setSequence] =useState({});
 
+    const {
+        turn,
+        inSequence,
+        opponentHealth,
+        playerHealth,
+        announcerMessage
+    } = useBattleSequence(sequence)
+
+    const aiChoice = useAIOpponent(turn)
+
+    useEffect(() => {
+        if(aiChoice && turn === 1 && !inSequence) {
+          setSequence({ turn, mode: aiChoice })
+        }
+    }, [turn, aiChoice, inSequence])
 
     return (
         <div className='game'>
@@ -45,10 +59,10 @@ const Game = () => {
                 }/>
 
                 <BattleMenu className='battle-menu'
-                onAttack={() => {console.log('Attack')}}
+                onAttack={() => setSequence({ turn, mode: 'attack' })}
                 onAttack2={() => {console.log('Attack2')}}
-                onAttack3={() => {console.log('Attack3')}}
-                onHeal={() => {console.log('Heal')}}
+                onAttack3={() => setSequence({ turn, mode: 'Magic' })}
+                onHeal={() => setSequence({ turn, mode: 'Heal' })}
                 />
             </div>
         </div>

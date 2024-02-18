@@ -1,5 +1,7 @@
 import './Announcer.css'
 import { useTypedMessage } from '../../hooks/useTypedMessage'
+
+
 const Announcer = ({message}) => {
 
     const typedMessage = useTypedMessage(message)
