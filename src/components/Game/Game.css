@@ -79,6 +79,6 @@
     justify-content: space-between;
 }
 
-.flip-horizontal {
+.enem-imgs {
     transform: scaleX(-1);
   }
