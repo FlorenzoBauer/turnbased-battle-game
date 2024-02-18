@@ -9,7 +9,7 @@
 }
 
 .details {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
     width: 600px;
     display: flex;
     width: 600px;
@@ -17,13 +17,13 @@
 }
 
 .highscore-title {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
     margin-top: 100px;
 }
 
 .home-button {
     font-size: medium;
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
     font-weight: 500;
     background: white;
     border: 2px solid #000;

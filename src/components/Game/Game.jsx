@@ -14,13 +14,13 @@ const Game = () => {
 
     return (
         <div className='game'>
-            <div className='player1summary'>
+            <div className='player2summary'>
                 <PlayerSummary 
-                health={playerHealth} 
-                name={playerStats.name} 
-                level={playerStats.level} 
-                maxHealth={playerStats.maxHealth} 
-                className='playerSummary' main={false} />
+                health={opponentHealth} 
+                name={enemyStats.name} 
+                level={enemyStats.level} 
+                maxHealth={enemyStats.maxHealth} 
+                className='AiSummary' main={true}/>
             </div>
             {/* <div className='characters-vs-sign' >
                 {playerStats.name} vs {enemyStats.name}
@@ -29,15 +29,15 @@ const Game = () => {
                 <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
             </div>
             <div className='enemy-characters'>
-                <img className='enem-imgs' class="flip-horizontal" src={enemyStats.img} alt={enemyStats.name} />
+                <img className='enem-imgs' src={enemyStats.img} alt={enemyStats.name} />
             </div>
-            <div className='player2summary'>
+            <div className='player1summary'>
                 <PlayerSummary 
-                health={opponentHealth} 
-                name={enemyStats.name} 
-                level={enemyStats.level} 
-                maxHealth={enemyStats.maxHealth} 
-                className='AiSummary' main={true}/>
+                health={playerHealth} 
+                name={playerStats.name} 
+                level={playerStats.level} 
+                maxHealth={playerStats.maxHealth} 
+                className='playerSummary' main={false} />
             </div>
             <div className='hud'>
                 <Announcer message={
