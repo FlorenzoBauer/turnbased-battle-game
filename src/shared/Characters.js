@@ -18,7 +18,7 @@ export const playerStats = {
         },
         {
             name: 'attack3',
-            damage: 40
+            damage: 480
         },
         {
             name: 'heal',

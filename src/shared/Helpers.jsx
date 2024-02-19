@@ -26,7 +26,6 @@ export const attack3 = ({attacker, receiver}) => {
 }
 
 
-export const heal = ({attacker}) => {
-    console.log(attacker)
-    return attacker.defense + attacker.level * .25
+export const heal = ({receiver}) => {
+    return receiver.defense + receiver.level * .25
 }

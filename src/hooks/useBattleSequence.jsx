@@ -30,7 +30,7 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                         : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
                         
                         setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                        await wait(3000)
+                        await wait(2000)
                         setTurn(turn === 0 ? 1 : 0)
                         setInSequence(false)
                     })()
@@ -50,7 +50,7 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                                 : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
                                 
                                 setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                                await wait(3000)
+                                await wait(2000)
                                 setTurn(turn === 0 ? 1 : 0)
                                 setInSequence(false)
                             })()
@@ -70,7 +70,7 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                             : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
                             
                             setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                            await wait(3000)
+                            await wait(2000)
                             setTurn(turn === 0 ? 1 : 0)
                             setInSequence(false)
                         })()
@@ -78,20 +78,27 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                         break;
                     } 
                     case 'heal': {
-                        const damage = heal({ attacker });
+                        const recovered = heal({ receiver: attacker });
                             
                             (async () => {
                                 
                                 setInSequence(true)
-                                setAnnouncerMessage(`${attacker.name} heals for ${damage} health`)
+                                setAnnouncerMessage(`${attacker.name} heals for ${recovered} health`)
                                 await wait(3000)
-                                turn === 0
-                                ? setPlayerHealth(h => (h + damage))
-                                : setOpponentHealth(h => (h +  damage))
-                                
-                                setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                                await wait(3000)
-                                setTurn(turn === 0 ? 1 : 0)
+                                turn === 0 
+                                ? setPlayerHealth(h => 
+                                    h + recovered <= attacker.maxHealth 
+                                    ? h + recovered 
+                                    : attacker.maxHealth) 
+                                    
+                                    : setOpponentHealth(h => 
+                                        h + recovered <= attacker.maxHealth 
+                                        ? h + recovered 
+                                        : attacker.maxHealth)
+                                        setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
+                                        await wait(2000)
+                                        setTurn(turn === 0 ? 1 : 0)
+                                        
                                 setInSequence(false)
                             })()
                             

@@ -7,10 +7,11 @@ import { useEffect, useState } from 'react'
 import { useBattleSequence } from '../../hooks/useBattleSequence'
 import { useAIOpponent } from '../../hooks/useAIOpponent'
 import { wait } from '../../shared/Helpers'
+import { EndGame } from '../EndGame/EndGame'
+import { useNavigate } from 'react-router-dom'
 
-const Game = () => {
+const Game = ({winner, setWinner}) => {
     const [sequence, setSequence] =useState({});
-
     const {
         turn,
         inSequence,
@@ -27,14 +28,17 @@ const Game = () => {
         }
     }, [turn, aiChoice, inSequence])
     
-    // useEffect(() => {
-    //     if (playerHealth === 0 || opponentHealth === 0) {
-    //       (async () => {
-    //         await wait(1000);
-    //         onGameEnd(playerHealth === 0 ? opponentStats : playerStats);
-    //       })();
-    //     }
-    //   }, [playerHealth, opponentHealth, onGameEnd]);
+    useEffect(() => {
+        if (playerHealth === 0 || opponentHealth === 0) {
+          (async () => {
+            await wait(1000);
+            setWinner({
+              winner: playerHealth <= 0 ? enemyStats : playerStats,
+            });
+
+          })();
+        }
+      }, [playerHealth, opponentHealth]);
 
     return (
         <div className='game'>
