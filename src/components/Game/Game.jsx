@@ -6,6 +6,7 @@ import Announcer from '../Announcer/Announcer'
 import { useEffect, useState } from 'react'
 import { useBattleSequence } from '../../hooks/useBattleSequence'
 import { useAIOpponent } from '../../hooks/useAIOpponent'
+import { wait } from '../../shared/Helpers'
 
 const Game = () => {
     const [sequence, setSequence] =useState({});
@@ -15,7 +16,7 @@ const Game = () => {
         inSequence,
         opponentHealth,
         playerHealth,
-        announcerMessage
+        announcerMessage 
     } = useBattleSequence(sequence)
 
     const aiChoice = useAIOpponent(turn)
@@ -25,15 +26,24 @@ const Game = () => {
           setSequence({ turn, mode: aiChoice })
         }
     }, [turn, aiChoice, inSequence])
+    
+    // useEffect(() => {
+    //     if (playerHealth === 0 || opponentHealth === 0) {
+    //       (async () => {
+    //         await wait(1000);
+    //         onGameEnd(playerHealth === 0 ? opponentStats : playerStats);
+    //       })();
+    //     }
+    //   }, [playerHealth, opponentHealth, onGameEnd]);
 
     return (
         <div className='game'>
             <div className='player2summary'>
-                <PlayerSummary 
-                health={opponentHealth} 
-                name={enemyStats.name} 
-                level={enemyStats.level} 
-                maxHealth={enemyStats.maxHealth} 
+                <PlayerSummary
+                health={opponentHealth}
+                name={enemyStats.name}
+                level={enemyStats.level}
+                maxHealth={enemyStats.maxHealth}
                 className='AiSummary' main={true}/>
             </div>
             {/* <div className='characters-vs-sign' >
@@ -46,11 +56,11 @@ const Game = () => {
                 <img className='enem-imgs' src={enemyStats.img} alt={enemyStats.name} />
             </div>
             <div className='player1summary'>
-                <PlayerSummary 
+                <PlayerSummary
                 health={playerHealth} 
-                name={playerStats.name} 
-                level={playerStats.level} 
-                maxHealth={playerStats.maxHealth} 
+                name={playerStats.name}
+                level={playerStats.level}
+                maxHealth={playerStats.maxHealth}
                 className='playerSummary' main={false} />
             </div>
             <div className='hud'>
@@ -59,10 +69,10 @@ const Game = () => {
                 }/>
 
                 <BattleMenu className='battle-menu'
-                onAttack={() => setSequence({ turn, mode: 'attack' })}
-                onAttack2={() => {console.log('Attack2')}}
-                onAttack3={() => setSequence({ turn, mode: 'Magic' })}
-                onHeal={() => setSequence({ turn, mode: 'Heal' })}
+                onAttack1={() => setSequence({ turn, mode: playerStats.attacks[0].name })}
+                onAttack2={() => setSequence({ turn, mode: playerStats.attacks[1].name})}
+                onAttack3={() => setSequence({ turn, mode: playerStats.attacks[2].name})}
+                onHeal={() => setSequence({ turn, mode: playerStats.attacks[3].name })}
                 />
             </div>
         </div>
