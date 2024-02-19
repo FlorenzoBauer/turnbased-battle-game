@@ -5,7 +5,7 @@ import squirreldemonsprite from '../assets/squirreldemonsprite.png';
 export const playerStats = {
     level: 1,
     maxHealth: 150,
-    name : 'Test Character',
+    name : 'Character',
     img: angryCloudSprite,
     attacks: [
         {
@@ -30,7 +30,7 @@ export const playerStats = {
 export const enemyStats = {
     level: 1,
     maxHealth: 150,
-    name : 'Test Enemy',
+    name : 'Enemy',
     img: squirreldemonsprite,
     attacks: [
         {

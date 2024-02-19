@@ -86,8 +86,8 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                                 setAnnouncerMessage(`${attacker.name} heals for ${damage} health`)
                                 await wait(3000)
                                 turn === 0
-                                ? setOpponentHealth(h => (h + damage))
-                                : setPlayerHealth(h => (h +  damage))
+                                ? setPlayerHealth(h => (h + damage))
+                                : setOpponentHealth(h => (h +  damage))
                                 
                                 setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
                                 await wait(3000)
