@@ -5,20 +5,27 @@ new Promise(resolve => {
     }, ms)
 })
 
-export const attack = ({attacker, receiver}) => {
-    const recievedDamage = attacker.attack - (attacker.level - receiver.level) *1.25
+export const attack1 = ({attacker, receiver}) => {
+    const recievedDamage = attacker.attacks[0].damage - (attacker.level - receiver.level) *1.25
     const finalDamage = recievedDamage - receiver.defense / 2
 
     return finalDamage;
 }
 
-export const magic = ({attacker, receiver}) => {
-    const recievedDamage = attacker.magic - (attacker.level - receiver.level) *1.25
-    const finalDamage = recievedDamage - receiver.magicDefense / 2
+export const attack2 = ({attacker, receiver}) => {
+    const recievedDamage = attacker.attacks[1].damage - (attacker.level - receiver.level) *1.25
+    const finalDamage = recievedDamage - receiver.defense / 2
+
+    return finalDamage;
+}
+export const attack3 = ({attacker, receiver}) => {
+    const recievedDamage = attacker.attacks[2].damage - (attacker.level - receiver.level) *1.25
+    const finalDamage = recievedDamage - receiver.defense / 2
 
     return finalDamage;
 }
 
-export const heal = ({user}) => {
-    return user.magic + user.level * .25
+
+export const heal = ({receiver}) => {
+    return receiver.defense + receiver.level * .25
 }

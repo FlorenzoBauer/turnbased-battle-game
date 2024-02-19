@@ -15,6 +15,9 @@ const Home = () => {
     const navSettings = () => {
         navigate('/settings')
     }
+    const navEndGame = () => {
+    navigate('/endGame')
+    }
     
     return (
         <main className="Home">
@@ -26,7 +29,7 @@ const Home = () => {
             <button className='startButton' onClick={navGame}>Start Game</button>
             <button className='highScoreButton' onClick={navHighScore}>High Scores</button>
             <button className='settingsButton'>Settings</button>
-            <h3>Florenzo, Matt, Gavin 2024'</h3>
+            <h3>Florenzo, Matt, Gavin 2024</h3>
         </main>
     )}
 
