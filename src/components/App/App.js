@@ -7,7 +7,7 @@ import EndGame from '../EndGame/EndGame';
 import HighScore from '../HighScore/HighScore';
 
 function App() {
-  const [winner, setWinner] = useState(null)
+  const [winner, setWinner] = useState('')
   return (
     <Routes>
       {/* <Header /> */}

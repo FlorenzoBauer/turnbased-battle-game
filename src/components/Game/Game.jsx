@@ -37,6 +37,7 @@ const Game = ({winner, setWinner}) => {
             setWinner({
               winner: playerHealth <= 0 ? enemyStats : playerStats,
             });
+            console.log()
             navigate('/endgame')
           })();
         }
@@ -55,11 +56,11 @@ const Game = ({winner, setWinner}) => {
             {/* <div className='characters-vs-sign' >
                 {playerStats.name} vs {enemyStats.name}
             </div> */}
-            <div className='player-characters'>
-                <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
-            </div>
             <div className='enemy-characters'>
                 <img className='enem-imgs' src={enemyStats.img} alt={enemyStats.name} />
+            </div>
+            <div className='player-characters'>
+                <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
             </div>
             <div className='player1summary'>
                 <PlayerSummary

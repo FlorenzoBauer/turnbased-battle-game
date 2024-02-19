@@ -5,7 +5,7 @@ import squirreldemonsprite from '../assets/squirreldemonsprite.png';
 export const playerStats = {
     level: 1,
     maxHealth: 150,
-    name : 'Character',
+    name : 'Cloudmon',
     img: angryCloudSprite,
     attacks: [
         {
