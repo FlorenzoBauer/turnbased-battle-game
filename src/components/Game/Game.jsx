@@ -8,9 +8,11 @@ import { useBattleSequence } from '../../hooks/useBattleSequence'
 import { useAIOpponent } from '../../hooks/useAIOpponent'
 import { wait } from '../../shared/Helpers'
 import { EndGame } from '../EndGame/EndGame'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const Game = ({winner, setWinner}) => {
+    const navigate = useNavigate();
+
     const [sequence, setSequence] =useState({});
     const {
         turn,
@@ -35,7 +37,7 @@ const Game = ({winner, setWinner}) => {
             setWinner({
               winner: playerHealth <= 0 ? enemyStats : playerStats,
             });
-
+            navigate('/endgame')
           })();
         }
       }, [playerHealth, opponentHealth]);
