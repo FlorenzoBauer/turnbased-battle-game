@@ -1,5 +1,4 @@
 import './Home.css'
-import { playerStats } from '../../shared/Characters';
 import characterImage from '../../assets/dashketchup.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ const Home = () => {
 
     const navigate = useNavigate();
     const navGame = () => {
-        navigate('/game')
+        navigate('/selectCharacter')
     }
     const navHighScore = () => {
         navigate('/highscore')
@@ -23,7 +22,7 @@ const Home = () => {
         <main className="Home">
             <h1>Battle Pals</h1>
             <div className='charactersContainer'>
-            <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
+            
             <img className='dashketchup' src={characterImage} alt="Character Image"/>
             </div>
             <button className='startButton' onClick={navGame}>Start Game</button>

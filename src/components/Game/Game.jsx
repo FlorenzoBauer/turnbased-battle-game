@@ -1,6 +1,5 @@
 import './Game.css'
 import PlayerSummary from '../PlayerSummary/PlayerSummary'
-import { enemyStats, playerStats } from '../../shared/Characters'
 import BattleMenu from '../BattleMenu/BattleMenu'
 import Announcer from '../Announcer/Announcer'
 import { useEffect, useState } from 'react'
@@ -9,10 +8,15 @@ import { useAIOpponent } from '../../hooks/useAIOpponent'
 import { wait } from '../../shared/Helpers'
 import { EndGame } from '../EndGame/EndGame'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
-const Game = ({winner, setWinner}) => {
+const Game = ({ winner, setWinner}) => {
+    const location = useLocation();
     const navigate = useNavigate();
-
+    const playerStats = location.state.playerStats;
+    const enemyStats = location.state.enemyStats;
+    console.log('playerStats', playerStats)
+    console.log('enemyStats', enemyStats)
     const [sequence, setSequence] =useState({});
     const {
         turn,
@@ -20,7 +24,7 @@ const Game = ({winner, setWinner}) => {
         opponentHealth,
         playerHealth,
         announcerMessage 
-    } = useBattleSequence(sequence)
+    } = useBattleSequence({playerStats, enemyStats, sequence})
 
     const aiChoice = useAIOpponent(turn)
 
