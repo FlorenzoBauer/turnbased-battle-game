@@ -6,7 +6,7 @@ const EndGame = ({winner}) => {
     const navigate = useNavigate();
 
     const endGameButtonClicked = () => {
-        navigate('/selectCharacter')
+        navigate('/')
     }
 
     console.log(winner)

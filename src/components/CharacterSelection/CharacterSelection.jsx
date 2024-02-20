@@ -18,18 +18,21 @@ const CharacterSelection = () => {
     };
 
     return (
-        <div className='select-character'>
-            {Object.keys(characters).map((characterName) => (
-                <div key={characterName} className='character-selection'>
-                    <img
-                        onClick={() => characterPick(characterName)}
-                        className='character-img'
-                        src={characters[characterName].img}
-                        alt={characters[characterName].name}
-                    />
-                    <div className='character-name'>{characters[characterName].name}</div>
-                </div>
-            ))}
+        <div className='character-selection-container'>
+            <p>Please Select Your Character!</p>
+            <div className='select-character'>
+                {Object.keys(characters).map((characterName) => (
+                    <div key={characterName} className='character-selection'>
+                        <img
+                            onClick={() => characterPick(characterName)}
+                            className='character-img'
+                            src={characters[characterName].img}
+                            alt={characters[characterName].name}
+                        />
+                        <div className='character-name'>{characters[characterName].name}</div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
