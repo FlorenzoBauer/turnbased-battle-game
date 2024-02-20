@@ -1,0 +1,34 @@
+.EndGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 700px;
+    height: 650px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.continue-button,
+.endGame-button {
+    font-size: medium;
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: 500;
+    background: white;
+    border: 2px solid #000;
+    width: 300px;
+    margin: 5px;
+}
+
+.continue-button:hover,
+.endGame-button:hover {
+    background: blue; 
+    border-color: #555; 
+}
+
+.continue-button:active,
+.endGame-button:active {
+    background: red; 
+    border-color: #222; 
+    color: white; 
+}

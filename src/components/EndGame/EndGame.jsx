@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-// import './EndGame.css'
+import './EndGame.css'
+
 
 const EndGame = ({winner}) => {
     const navigate = useNavigate();
