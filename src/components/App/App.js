@@ -5,7 +5,7 @@ import Game from '../Game/Game';
 import Home from '../Home/Home';
 import EndGame from '../EndGame/EndGame';
 import HighScore from '../HighScore/HighScore';
-
+import CharacterSelection from '../CharacterSelection/CharacterSelection';
 function App() {
   const [winner, setWinner] = useState(null)
   return (
@@ -15,6 +15,7 @@ function App() {
       <Route path="/game" element={<Game winner={winner} setWinner={setWinner}/>} />
       <Route path="highscore" element={<HighScore />} />
       <Route path="endGame" element={<EndGame winner={winner}/>} />
+      <Route path="selectCharacter" element={<CharacterSelection />} />
     </Routes>
   );
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { enemyStats, playerStats } from '../shared/Characters';
+
 import { attack1, attack2, attack3, heal,  wait } from '../shared/Helpers.jsx';
 
-export const useBattleSequence = sequence => {
+export const useBattleSequence = ({playerStats, enemyStats, sequence}) => {
 const [turn, setTurn] = useState(0);
 const [inSequence, setInSequence] = useState(false);
 const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
@@ -108,7 +108,7 @@ const [announcerMessage, setAnnouncerMessage] = useState('')
                 break;
             }
         }
-    },[sequence])
+    },[sequence, playerStats, enemyStats])
 
     return {
         turn,
