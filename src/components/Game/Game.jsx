@@ -8,9 +8,13 @@ import { useAIOpponent } from '../../hooks/useAIOpponent'
 import { wait } from '../../shared/Helpers'
 import { EndGame } from '../EndGame/EndGame'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
-const Game = ({playerStats, enemyStats,winner, setWinner}) => {
+const Game = ({ winner, setWinner}) => {
+    const location = useLocation();
     const navigate = useNavigate();
+    const playerStats = location.state.playerStats;
+    const enemyStats = location.state.enemyStats;
     console.log('playerStats', playerStats)
     console.log('enemyStats', enemyStats)
     const [sequence, setSequence] =useState({});

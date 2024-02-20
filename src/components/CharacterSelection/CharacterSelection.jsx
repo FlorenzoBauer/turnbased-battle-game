@@ -14,6 +14,7 @@ const CharacterSelection = () => {
     const characterPick = (characterName) => {
         const selectedCharacter = characters[characterName];
         setPlayerStats(selectedCharacter);
+        navigate('/game', { state: { playerStats: selectedCharacter, enemyStats: randomEnemy } });
     };
 
     return (
@@ -29,9 +30,6 @@ const CharacterSelection = () => {
                     <div className='character-name'>{characters[characterName].name}</div>
                 </div>
             ))}
-            {playerStats.name && (
-                <Game playerStats={playerStats} enemyStats={enemyStats} />
-            )}
         </div>
     );
 };

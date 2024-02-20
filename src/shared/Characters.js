@@ -5,7 +5,7 @@ export const characters = {
     angryCloudSprite: {
         level: 1,
         maxHealth: 150,
-        name: 'Angry Cloud Sprite',
+        name: 'Angry Cloud',
         img: angryCloudSprite,
         attacks: [
             { name: 'attack1', damage: 20 },
@@ -18,7 +18,7 @@ export const characters = {
     squirreldemonsprite: {
         level: 1,
         maxHealth: 150,
-        name: 'Squirrel Demon Sprite',
+        name: 'Squirrel Demon',
         img: squirreldemonsprite,
         attacks: [
             { name: 'attack1', damage: 20 },
