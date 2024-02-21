@@ -11,12 +11,17 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const Game = ({ winner, setWinner}) => {
+
     const location = useLocation();
     const navigate = useNavigate();
     const playerStats = location.state.playerStats;
     const enemyStats = location.state.enemyStats;
-    console.log('playerStats', playerStats)
-    console.log('enemyStats', enemyStats)
+    if(enemyStats.level > 1){
+        const upgrades = enemyStats.level * 20
+        enemyStats.maxHealth += upgrades
+        enemyStats.defense  += upgrades
+    }
+    
     const [sequence, setSequence] =useState({});
     const {
         turn,
@@ -39,9 +44,8 @@ const Game = ({ winner, setWinner}) => {
           (async () => {
             await wait(1000);
             setWinner({
-              winner: playerHealth <= 0 ? enemyStats : playerStats,
+              winner: playerHealth > 0 ? playerStats : null
             });
-            console.log()
             navigate('/endgame')
           })();
         }
