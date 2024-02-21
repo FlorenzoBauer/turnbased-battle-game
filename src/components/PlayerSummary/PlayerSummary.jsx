@@ -11,8 +11,7 @@ const PlayerSummary = ({ main = false, name, level, health, maxHealth }) => {
     return (
         <main className="main">
             <div className='info'>
-                <h2>Player Summary</h2>
-                <article>{name}</article>
+                <article className='name'>{name}</article>
                 <article>Level: {level}</article>
             </div>
             <div>

@@ -5,3 +5,9 @@
 .healthBar {
     width: 190px;
 }
+
+.name {
+    margin-top: -25px;
+    margin-bottom: 25px;
+    font-size: x-large;
+}
