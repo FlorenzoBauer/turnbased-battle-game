@@ -5,10 +5,9 @@ import { useNavigate
 
 function SubmitHighScore({playerWins, winner}) {
   const navigate = useNavigate()
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('ABC');
   const [errorMessage, setErrorMessage] = useState('');
-console.log(winner)
-console.log(winner.winner.name)
+
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -57,8 +56,11 @@ console.log(winner.winner.name)
             onChange={handleInputChange}
           />
         </label>
-        <p>{winner.winner.name}</p>
+        <p>{winner.winner ? winner.winner.name : 'no name'}</p>
+
+
         <button type="submit">Submit</button>
+        <button onClick={() => navigate('./')}>Exit</button>
       </form>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </div>

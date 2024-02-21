@@ -1,120 +1,90 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
+import { attack1, attack2, attack3, heal, wait } from '../shared/Helpers.jsx';
 
-import { attack1, attack2, attack3, heal,  wait } from '../shared/Helpers.jsx';
+const initialState = {
+  turn: 0,
+  inSequence: false,
+  playerHealth: 10,
+  opponentHealth: 10,
+  announcerMessage: '',
+};
 
-export const useBattleSequence = ({playerStats, enemyStats, sequence}) => {
-const [turn, setTurn] = useState(0);
-const [inSequence, setInSequence] = useState(false);
-const [playerHealth, setPlayerHealth] = useState(playerStats.maxHealth)
-const [opponentHealth, setOpponentHealth] = useState(enemyStats.maxHealth)
-const [announcerMessage, setAnnouncerMessage] = useState('')
+const battleReducer = (state, action) => {
+  switch (action.type) {
+    case 'startSequence':
+      return { ...state, inSequence: true, announcerMessage: action.message };
+    case 'endSequence':
+      return { ...state, inSequence: false, announcerMessage: action.message };
+      case 'updateHealth':
+  console.log('Damage in updateHealth:', action.damage);
+  const updatedPlayerHealth = state.playerHealth - (action.turn === 0 ? action.damage : 0);
+  const updatedOpponentHealth = state.opponentHealth - (action.turn === 1 ? action.damage : 0);
 
-    useEffect(() => {
-        const { mode, turn } = sequence;
+  console.log('Updated Player Health:', updatedPlayerHealth);
+  console.log('Updated Opponent Health:', updatedOpponentHealth);
 
-        if (mode) {
-            const attacker = turn === 0 ? playerStats : enemyStats;
-            const receiver = turn === 0 ? enemyStats : playerStats;
-      
-            switch (mode) {
-              case 'attack1': {
-                const damage = attack1({ attacker, receiver });
-                    
-                    (async () => {
-                        
-                        setInSequence(true)
-                        setAnnouncerMessage(`${attacker.name} attacks ${receiver.name} for ${damage} damage`)
-                        await wait(3000)
-                        turn === 0
-                        ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
-                        : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
-                        
-                        setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                        await wait(2000)
-                        setTurn(turn === 0 ? 1 : 0)
-                        setInSequence(false)
-                    })()
-                    
-                    break;
-                }
-                    case 'attack2': {
-                        const damage = attack2({ attacker, receiver });
-                            
-                            (async () => {
-                                
-                                setInSequence(true)
-                                setAnnouncerMessage(`${attacker.name} attacks ${receiver.name} for ${damage} damage`)
-                                await wait(3000)
-                                turn === 0
-                                ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
-                                : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
-                                
-                                setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                                await wait(2000)
-                                setTurn(turn === 0 ? 1 : 0)
-                                setInSequence(false)
-                            })()
-                            
-                            break;
-                }  
-                case 'attack3': {
-                    const damage = attack3({ attacker, receiver });
-                        
-                        (async () => {
-                            
-                            setInSequence(true)
-                            setAnnouncerMessage(`${attacker.name} attacks ${receiver.name} for ${damage} damage`)
-                            await wait(3000)
-                            turn === 0
-                            ? setOpponentHealth(h => (h - damage > 0 ? h - damage : 0))
-                            : setPlayerHealth(h => (h - damage > 0 ? h - damage : 0))
-                            
-                            setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                            await wait(2000)
-                            setTurn(turn === 0 ? 1 : 0)
-                            setInSequence(false)
-                        })()
-                        
-                        break;
-                    } 
-                    case 'heal': {
-                        const recovered = heal({ receiver: attacker });
-                            
-                            (async () => {
-                                
-                                setInSequence(true)
-                                setAnnouncerMessage(`${attacker.name} heals for ${recovered} health`)
-                                await wait(3000)
-                                turn === 0 
-                                ? setPlayerHealth(h => 
-                                    h + recovered <= attacker.maxHealth 
-                                    ? h + recovered 
-                                    : attacker.maxHealth) 
-                                    
-                                    : setOpponentHealth(h => 
-                                        h + recovered <= attacker.maxHealth 
-                                        ? h + recovered 
-                                        : attacker.maxHealth)
-                                        setAnnouncerMessage(`Now it's ${receiver.name}'s turn`)
-                                        await wait(2000)
-                                        setTurn(turn === 0 ? 1 : 0)
-                                        
-                                setInSequence(false)
-                            })()
-                            
-                            break;
-                        }
-            default:
-                break;
-            }
+  return {
+    ...state,
+    playerHealth: Math.max(0, updatedPlayerHealth),
+    opponentHealth: Math.max(0, updatedOpponentHealth),
+  };
+
+    case 'changeTurn':
+      return { ...state, turn: state.turn === 0 ? 1 : 0, announcerMessage: action.message };
+    default:
+      return state;
+  }
+};
+
+export const useBattleSequence = ({ playerStats = { maxHealth: 0 }, enemyStats = { maxHealth: 0 }, sequence }) => {
+  const [state, dispatch] = useReducer(battleReducer, initialState);
+
+  useEffect(() => {
+    const { mode, turn } = sequence;
+
+    if (mode) {
+      const attacker = turn === 0 ? playerStats : enemyStats;
+      const receiver = turn === 0 ? enemyStats : playerStats;
+
+      console.log('Attacker:', attacker);
+      console.log('Receiver:', receiver);
+
+      switch (mode) {
+        case 'attack1':
+        case 'attack2':
+        case 'attack3': {
+          const damage =
+            mode === 'attack1' ? attack1({ attacker, receiver }) : mode === 'attack2' ? attack2({ attacker, receiver }) : attack3({ attacker, receiver });
+
+          (async () => {
+            dispatch({ type: 'startSequence', message: `${attacker.name} attacks ${receiver.name} for ${damage} damage` });
+            await wait(3000);
+            dispatch({ type: 'updateHealth', damage, turn });
+            dispatch({ type: 'endSequence', message: `Now it's ${receiver.name}'s turn` });
+            await wait(2000);
+            dispatch({ type: 'changeTurn', message: '' });
+          })();
+          break;
         }
-    },[sequence, playerStats, enemyStats])
+        case 'heal': {
+          const recovered = heal({ receiver: attacker });
+          console.log('Recovered:', recovered);
 
-    return {
-        turn,
-        inSequence,
-        playerHealth,
-        opponentHealth,
-        announcerMessage
+          (async () => {
+            dispatch({ type: 'startSequence', message: `${attacker.name} heals for ${recovered} health` });
+            await wait(3000);
+            dispatch({ type: 'updateHealth', damage: recovered, turn });
+            dispatch({ type: 'endSequence', message: `Now it's ${receiver.name}'s turn` });
+            await wait(2000);
+            dispatch({ type: 'changeTurn', message: '' });
+          })();
+          break;
+        }
+        default:
+          break;
+      }
     }
-}; 
+  }, [sequence, playerStats, enemyStats]);
+
+  return state;
+};

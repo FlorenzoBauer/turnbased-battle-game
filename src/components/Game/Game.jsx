@@ -11,11 +11,10 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const Game = ({ winner, setWinner}) => {
-
     const location = useLocation();
     const navigate = useNavigate();
-    const playerStats = location.state.playerStats;
-    const enemyStats = location.state.enemyStats;
+    const { playerStats, enemyStats } = location.state;
+    
     if(enemyStats.level > 1){
         const upgrades = enemyStats.level * 20
         enemyStats.maxHealth += upgrades

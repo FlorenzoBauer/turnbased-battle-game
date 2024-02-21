@@ -19,6 +19,10 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "globals": {
+      "playerStats": "readonly",
+      "enemyStats": "readonly"
+    },  
     "extends": [
       "react-app",
       "react-app/jest"
