@@ -10,10 +10,9 @@
 
 .details {
     font-family: 'Press Start 2P', sans-serif;
-    width: 600px;
     display: flex;
     width: 600px;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .highscore-title {
@@ -22,13 +21,13 @@
 }
 
 .home-button {
+    margin-top: 150px;
     font-size: medium;
     font-family: 'Press Start 2P', sans-serif;
     font-weight: 500;
     background: white;
     border: 2px solid #000;
     width: 300px;
-    margin: 5px;
 }
 
 .home-button:hover {
@@ -43,7 +42,25 @@
 }
 
 .mapped-score-cards {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score-card {
+    width: 500px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+p { 
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
 }
