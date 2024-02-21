@@ -10,7 +10,8 @@
 }
 
 .continue-button,
-.endGame-button {
+.endGame-button,
+.submit-button {
     font-size: medium;
     font-family: 'Press Start 2P', sans-serif;
     font-weight: 500;
@@ -21,14 +22,25 @@
 }
 
 .continue-button:hover,
-.endGame-button:hover {
+.endGame-button:hover,
+.submit-button:hover {
     background: blue; 
     border-color: #555; 
 }
 
 .continue-button:active,
-.endGame-button:active {
+.endGame-button:active,
+.submit-button:active {
     background: red; 
     border-color: #222; 
     color: white; 
+}
+
+input {
+    text-align: center;
+    border: 0px;
+    font-size: medium;
+    background-color: white;
+    color: black;
+    font-family: 'Press Start 2P', sans-serif;
 }
