@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import './EndGame.css'
 import { characters } from "../../shared/Characters";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
-const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
+const EndGame = ({ setPlayerWins, playerWins ,setWinner, winner, loser}) => {
     const navigate = useNavigate();
     const aiWinner = winner
-   
+    const [initials, setInitials] = useState("");
+
     useEffect(() => {
         setPlayerWins(playerWins + 1)
     }, [])
@@ -32,11 +33,42 @@ const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
         navigate('/selectCharacter');
     };
 
+    const handleInitialsChange = (e) => {
+        setInitials(e.target.value);
+    };
+
+
+    const handleSubmit = () => {
+        const postData = {
+            initials: initials,
+            character: winner.name,
+            wins: playerWins
+        };
+
+        fetch('http://localhost:3001/api/v1/highscores', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Data successfully posted");
+            } else {
+                console.error("Failed to post data");
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
     if(!winner){
         
         return(
             <div className="EndGame">
                 <p>You lose {aiWinner.name}!</p>
+                <input type="text" placeholder="Enter your initials" value={initials} onChange={handleInitialsChange} />
+                <button className="submit-button" onClick={handleSubmit}>Submit</button>
                 <button className="endGame-button" onClick={endGameButtonClicked}>End Game?</button>
             </div>    
         )
@@ -44,7 +76,7 @@ const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
 
     return (
             <div className="EndGame">
-                <p>Congratulations {winner.winner.name}!</p>
+                <p>Congratulations {winner.name}!</p>
                 <p>You have {playerWins} win!</p>
                 <button className="continue-button" onClick={continueButton}>Continue?</button>
                 <button className="endGame-button" onClick={endGameButtonClicked}>End Game?</button>
