@@ -2,8 +2,8 @@ import './Home.css'
 import characterImage from '../../assets/dashketchup.png';
 import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-
+const Home = ({setPlayerWins}) => {
+ setPlayerWins(0)
     const navigate = useNavigate();
     const navGame = () => {
         navigate('/selectCharacter')

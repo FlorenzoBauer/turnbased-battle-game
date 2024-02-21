@@ -13,8 +13,7 @@ const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
     }, [])
     const endGameButtonClicked = () => {
         reset()
-        setPlayerWins(0)
-        navigate('/')
+        navigate('/submitHighScore')
     }
     function levelUp() {
         Object.values(characters).forEach(char => {
