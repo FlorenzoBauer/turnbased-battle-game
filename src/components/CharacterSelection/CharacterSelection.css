@@ -1,3 +1,28 @@
-.select-character{
+.character-selection-container {
+    position: relative;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.character-selection-container p {
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    font-size: medium;
+}
+
+.select-character {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     background-color: white;
+    width: 700px;
+    height: 650px;
+    justify-content: space-around;
+}
+
+.character-selection {
+    margin: 0 10px; 
 }
