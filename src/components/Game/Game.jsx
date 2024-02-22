@@ -1,14 +1,12 @@
-import './Game.css'
-import PlayerSummary from '../PlayerSummary/PlayerSummary'
-import BattleMenu from '../BattleMenu/BattleMenu'
-import Announcer from '../Announcer/Announcer'
-import { useEffect, useState } from 'react'
-import { useBattleSequence } from '../../hooks/useBattleSequence'
-import { useAIOpponent } from '../../hooks/useAIOpponent'
-import { wait } from '../../shared/Helpers'
-import { EndGame } from '../EndGame/EndGame'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import './Game.css';
+import PlayerSummary from '../PlayerSummary/PlayerSummary';
+import BattleMenu from '../BattleMenu/BattleMenu';
+import Announcer from '../Announcer/Announcer';
+import { useEffect, useState } from 'react';
+import { useBattleSequence } from '../../hooks/useBattleSequence';
+import { useAIOpponent } from '../../hooks/useAIOpponent';
+import { wait } from '../../shared/Helpers';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 
 const Game = ({setWinner, setLoser}) => {
     
