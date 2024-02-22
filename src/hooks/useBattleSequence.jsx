@@ -8,8 +8,8 @@ const battleReducer = (state, action) => {
     case 'endSequence':
       return { ...state, inSequence: false, announcerMessage: action.message };
     case 'updateHealth':
-      const updatedPlayerHealth = state.playerHealth - (action.turn === 1 ? action.damage : 0);
-      const updatedOpponentHealth = state.opponentHealth - (action.turn === 0 ? action.damage : 0);
+      const updatedPlayerHealth = state.playerHealth - (action.turn === 0 ? action.damage : 0);
+      const updatedOpponentHealth = state.opponentHealth - (action.turn === 1 ? action.damage : 0);
 
       return {
         ...state,
