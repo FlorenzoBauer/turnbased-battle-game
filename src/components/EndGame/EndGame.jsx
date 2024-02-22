@@ -4,7 +4,7 @@ import { characters } from "../../shared/Characters";
 import { useEffect } from "react";
 
 
-const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
+const EndGame = ({ setPlayerWins, playerWins, winner}) => {
     const navigate = useNavigate();
     const aiWinner = winner
    
@@ -13,6 +13,7 @@ const EndGame = ({ setPlayerWins, playerWins ,setWinner,winner}) => {
     }, [])
     const endGameButtonClicked = () => {
         reset()
+        navigate('/')
         navigate('/submitHighScore')
     }
     function levelUp() {

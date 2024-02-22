@@ -21,11 +21,11 @@ console.log(winner.winner.name)
 
       const postData = {
         initials: inputValue,
-        techTamer: winner.winner.name, 
+        character: winner.winner.name, 
         wins: playerWins,
       };
 
-      fetch('https://turn-based-game-server-24fb90dc319f.herokuapp.com/api/v1/highscores', {
+      fetch('http://localhost:3001/highscores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,14 +49,14 @@ console.log(winner.winner.name)
   return (
     <div className="submit-highscore-section">
       <form onSubmit={handleSubmit}>
-        <label>
-          Enter 3 characters:
-          <input
+        <h2>Score Submittion</h2>
+        <p>Please enter your initials!</p>
+         <input
             type="text"
+            placeholder="Here"
             value={inputValue}
             onChange={handleInputChange}
           />
-        </label>
         <p>{winner.winner.name}</p>
         <button type="submit">Submit</button>
       </form>

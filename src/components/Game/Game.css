@@ -80,5 +80,10 @@
 }
 
 .character-imgs {
+    width: 160px;
     transform: scaleX(-1);
   }
+ 
+.enemy-imgs {
+    width: 160px;
+}

@@ -64,7 +64,7 @@ const Game = ({ winner, setWinner }) => {
         />
       </div>
       <div className='enemy-characters'>
-        <img className='enem-imgs' src={enemyStats.img} alt={enemyStats.name} />
+        <img className='enemy-imgs' src={enemyStats.img} alt={enemyStats.name} />
       </div>
       <div className='player-characters'>
         <img className='character-imgs' src={playerStats.img} alt={playerStats.name} />
