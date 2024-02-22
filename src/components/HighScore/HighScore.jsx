@@ -6,20 +6,18 @@ const HighScore = () => {
     const navigate = useNavigate();
     const [highScores, setHighScores] = useState([]);
 
-    useEffect(() => {
-        getHighscores();
-    }, []);
-
     const getHighscores = () => {
-        fetch('http://localhost:3001/api/v1/highscores')
+        fetch('http://localhost:3001/highscores')
         .then(response => response.json())
         .then(data => {
-            if (data.highScores) {
-                setHighScores(data.highScores); // Set the fetched high scores to state
-            }
+        setHighScores(data); 
         })
         .catch(error => console.log(error.message))
     }
+
+    useEffect(() => {
+        getHighscores();
+    }, []);
 
     const handleHomeButtonClick = () => {
         navigate('/');
@@ -37,7 +35,7 @@ const HighScore = () => {
                 {highScores && highScores.sort((a, b) => b.wins - a.wins).map((score, index) => (
                     <div key={index} className="score-card">
                         <p>{score.initials}</p>
-                        <p>{score.techTamer}</p>
+                        <p>{score.character}</p>
                         <p>{score.wins}</p>
                     </div>
                 ))}
