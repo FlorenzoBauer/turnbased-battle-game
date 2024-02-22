@@ -7,7 +7,7 @@ const HighScore = () => {
     const [highScores, setHighScores] = useState([]);
 
     const getHighscores = () => {
-        fetch('http://localhost:3001/highscores')
+        fetch('https://turnbased-game-server-cb50ff6b890a.herokuapp.com/highscores')
         .then(response => response.json())
         .then(data => {
         setHighScores(data); 

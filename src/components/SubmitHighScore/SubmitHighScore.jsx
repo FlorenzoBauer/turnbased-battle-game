@@ -3,12 +3,13 @@ import './SubmitHighScore.css';
 import { useNavigate
  } from 'react-router-dom';
 
-function SubmitHighScore({playerWins, winner}) {
+function SubmitHighScore({playerWins, loser, winner}) {
   const navigate = useNavigate()
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState('ABC');
   const [errorMessage, setErrorMessage] = useState('');
-console.log(winner)
-console.log(winner.winner.name)
+if(!winner){
+  winner = loser
+}
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
@@ -21,11 +22,11 @@ console.log(winner.winner.name)
 
       const postData = {
         initials: inputValue,
-        techTamer: winner.winner.name, 
+        techTamer: winner.name, 
         wins: playerWins,
       };
 
-      fetch('https://turn-based-game-server-24fb90dc319f.herokuapp.com/api/v1/highscores', {
+      fetch('https://turnbased-game-server-cb50ff6b890a.herokuapp.com/highscores', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -57,8 +58,11 @@ console.log(winner.winner.name)
             onChange={handleInputChange}
           />
         </label>
-        <p>{winner.winner.name}</p>
+        <p>{winner.winner ? winner.winner.name : 'no name'}</p>
+
+
         <button type="submit">Submit</button>
+        <button onClick={() => navigate('./')}>Exit</button>
       </form>
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </div>
