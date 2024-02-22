@@ -11,16 +11,11 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
 const Game = ({ winner, setWinner}) => {
+    
     const location = useLocation();
     const navigate = useNavigate();
     const { playerStats, enemyStats } = location.state;
-    
-    if(enemyStats.level > 1){
-        const upgrades = enemyStats.level * 20
-        enemyStats.maxHealth += upgrades
-        enemyStats.defense  += upgrades
-    }
-    
+
     const [sequence, setSequence] =useState({});
     const {
         turn,
@@ -29,27 +24,27 @@ const Game = ({ winner, setWinner}) => {
         playerHealth,
         announcerMessage 
     } = useBattleSequence({playerStats, enemyStats, sequence})
-
+    
     const aiChoice = useAIOpponent(turn)
-
+    
     useEffect(() => {
-        if(aiChoice && turn === 1 && !inSequence) {
-          setSequence({ turn, mode: aiChoice })
+        if (aiChoice && turn === 1 && !inSequence) {
+            setSequence({ turn, mode: aiChoice });
         }
-    }, [turn, aiChoice, inSequence])
+    }, [turn, aiChoice, inSequence]);
     
     useEffect(() => {
         if (playerHealth === 0 || opponentHealth === 0) {
-          (async () => {
-            await wait(1000);
-            setWinner({
-              winner: playerHealth > 0 ? playerStats : null
-            });
-            navigate('/endgame')
-          })();
-        }
-      }, [playerHealth, opponentHealth]);
-
+            (async () => {
+                await wait(1000);
+                setWinner({
+                    winner: playerHealth > 0 ? playerStats : null
+                });    
+                navigate('/endgame')
+            })();    
+        }    
+    }, [playerHealth, opponentHealth]);    
+    
     return (
         <div className='game'>
             <div className='player2summary'>
@@ -57,7 +52,7 @@ const Game = ({ winner, setWinner}) => {
                 health={opponentHealth}
                 name={enemyStats.name}
                 level={enemyStats.level}
-                maxHealth={enemyStats.maxHealth}
+                maxHealth={enemyStats.maxHealth}    
                 className='AiSummary' main={true}/>
             </div>
             {/* <div className='characters-vs-sign' >
@@ -79,18 +74,18 @@ const Game = ({ winner, setWinner}) => {
             </div>
             <div className='hud'>
                 <Announcer message={
-                    announcerMessage || `What will ${playerStats.name} do?`
+                    announcerMessage || `What will ${playerStats.name} do?`                    
                 }/>
 
                 <BattleMenu className='battle-menu'
                 onAttack1={() => setSequence({ turn, mode: playerStats.attacks[0].name })}
                 onAttack2={() => setSequence({ turn, mode: playerStats.attacks[1].name})}
                 onAttack3={() => setSequence({ turn, mode: playerStats.attacks[2].name})}
-                onHeal={() => setSequence({ turn, mode: playerStats.attacks[3].name })}
+                onHeal={() => setSequence({ turn, mode: playerStats.attacks[3].name })}    
                 />
             </div>
-        </div>
+        </div>        
     )
-}
+}    
 
 export default Game;

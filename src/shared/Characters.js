@@ -18,7 +18,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -31,7 +31,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -44,7 +44,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -57,7 +57,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -70,7 +70,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -83,7 +83,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -96,7 +96,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -109,7 +109,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -122,7 +122,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
@@ -135,7 +135,7 @@ export const characters = {
         attacks: [
             { name: 'attack1', damage: 20 },
             { name: 'attack2', damage: 30 },
-            { name: 'attack3', damage: 480 },
+            { name: 'attack3', damage: 48 },
             { name: 'heal', damage: -40 }
         ],
         defense: 20
