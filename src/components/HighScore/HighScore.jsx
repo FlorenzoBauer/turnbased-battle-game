@@ -11,7 +11,7 @@ const HighScore = () => {
     }, []);
 
     const getHighscores = () => {
-        fetch('https://turn-based-game-server-24fb90dc319f.herokuapp.com/api/v1/highscores')
+        fetch('https://turnbased-game-server-cb50ff6b890a.herokuapp.com/highscores')
         .then(response => response.json())
         .then(data => {
             if (data.highScores) {

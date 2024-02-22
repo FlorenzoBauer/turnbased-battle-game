@@ -4,9 +4,10 @@ import { characters } from "../../shared/Characters";
 import { useEffect } from "react";
 
 
-const EndGame = ({ setPlayerWins, playerWins, setWinner, winner }) => {
+const EndGame = ({ setPlayerWins, playerWins, loser, winner }) => {
     const navigate = useNavigate();
-    const aiWinner = winner;
+    console.log('winner: ', winner)
+    console.log('loser: ', loser)
   
     useEffect(() => {
       setPlayerWins(playerWins + 1);
@@ -34,20 +35,21 @@ const EndGame = ({ setPlayerWins, playerWins, setWinner, winner }) => {
       navigate('/selectCharacter');
     };
   
-    if (!winner || !winner.winner) {
+    if (!winner) {
       return (
         <div className="EndGame">
-          <p>You lose {aiWinner ? aiWinner.name : 'AI'}!</p>
+          <p>You lose {loser.name}! Try again?</p>
           <button className="endGame-button" onClick={endGameButtonClicked}>
             End Game?
           </button>
         </div>
       );
     }
-  
+  if(!loser) {
+
     return (
       <div className="EndGame">
-        <p>Congratulations {winner.winner.name}!</p>
+        <p>Congratulations {winner.name}!</p>
         <p>You have {playerWins} win!</p>
         <button className="continue-button" onClick={continueButton}>
           Continue?
@@ -58,6 +60,10 @@ const EndGame = ({ setPlayerWins, playerWins, setWinner, winner }) => {
       </div>
     );
   };
+  return(
+    <h1>Error</h1>
+  )
   
+}
   export default EndGame;
   

@@ -10,13 +10,13 @@ import { EndGame } from '../EndGame/EndGame'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
-const Game = ({ winner, setWinner}) => {
+const Game = ({setWinner, setLoser}) => {
     
     const location = useLocation();
     const navigate = useNavigate();
     const { playerStats, enemyStats } = location.state;
-
     const [sequence, setSequence] =useState({});
+    
     const {
         turn,
         inSequence,
@@ -34,15 +34,20 @@ const Game = ({ winner, setWinner}) => {
     }, [turn, aiChoice, inSequence]);
     
     useEffect(() => {
-        if (playerHealth === 0 || opponentHealth === 0) {
+        if (opponentHealth === 0) {
             (async () => {
                 await wait(1000);
-                setWinner({
-                    winner: playerHealth > 0 ? playerStats : null
-                });    
+                setWinner(playerStats);    
                 navigate('/endgame')
             })();    
-        }    
+        }   
+        else if (playerHealth === 0) {
+            (async () => {
+                await wait(1000);
+                setLoser(playerStats);    
+                navigate('/endgame')
+            })();    
+        } 
     }, [playerHealth, opponentHealth]);    
     
     return (
