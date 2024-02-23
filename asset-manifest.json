@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/turnbased-battle-game/static/css/main.315a6f88.css",
-    "main.js": "/turnbased-battle-game/static/js/main.37973ab1.js",
+    "main.js": "/turnbased-battle-game/static/js/main.6c5206b4.js",
     "static/js/453.f6fd6d0a.chunk.js": "/turnbased-battle-game/static/js/453.f6fd6d0a.chunk.js",
     "static/media/liquiddogsprite.png": "/turnbased-battle-game/static/media/liquiddogsprite.be15164e920e9d549d9e.png",
     "static/media/timemonstersprite.png": "/turnbased-battle-game/static/media/timemonstersprite.09035ace86a178c10afd.png",
@@ -16,11 +16,11 @@
     "static/media/detectivefrogsprite.png": "/turnbased-battle-game/static/media/detectivefrogsprite.35f2d7b89c35177ab4a0.png",
     "index.html": "/turnbased-battle-game/index.html",
     "main.315a6f88.css.map": "/turnbased-battle-game/static/css/main.315a6f88.css.map",
-    "main.37973ab1.js.map": "/turnbased-battle-game/static/js/main.37973ab1.js.map",
+    "main.6c5206b4.js.map": "/turnbased-battle-game/static/js/main.6c5206b4.js.map",
     "453.f6fd6d0a.chunk.js.map": "/turnbased-battle-game/static/js/453.f6fd6d0a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.315a6f88.css",
-    "static/js/main.37973ab1.js"
+    "static/js/main.6c5206b4.js"
   ]
 }
