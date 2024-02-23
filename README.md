@@ -8,7 +8,7 @@ It is a poke-mon style battle game. Choose from a pool of ten characters, using 
 In order to get this site working, we used React, React Router, accessed data with Fetch API, and tested with Cypress. Made our backend with Knex, PostgreSQL, and PgAdmin4.
 
 ## Preview of App:
-[Visit Here!](rushyys.live/turnbased-battle-game/)
+[Visit Here!](www.rushyys.live/turnbased-battle-game/)
 
 <img width="1423" alt="Screenshot 2024-02-22 at 6 50 59 PM" src="https://github.com/FlorenzoBauer/turnbased-battle-game/assets/145882814/29ffab67-652e-4cce-a33c-30ce5d4351ff">
 <img width="1325" alt="Screenshot 2024-02-22 at 6 51 16 PM" src="https://github.com/FlorenzoBauer/turnbased-battle-game/assets/145882814/953fb682-6e42-41e2-a389-81439ad78bf8">
